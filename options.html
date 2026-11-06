@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shelf Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 400px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      color: #1a1a1a;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #444;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: #666;
+    }
+
+    .field textarea {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    .field textarea:focus {
+      outline: none;
+      border-color: #666;
+    }
+
+    .field .help {
+      font-size: 11px;
+      color: #888;
+      margin-top: 3px;
+    }
+
+    button {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 4px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    #status {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #1e7e34;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shelf Settings</h1>
+
+  <form id="settings-form">
+    <div class="field">
+      <label for="api-endpoint">API Endpoint URL</label>
+      <input
+        type="url"
+        id="api-endpoint"
+        placeholder="https://yoursite.netlify.app"
+        required
+      />
+      <p class="help">Your server's base URL (without trailing slash). Links are posted to &lt;URL&gt;/api/links/index.json</p>
+    </div>
+
+    <div class="field">
+      <label for="api-key">API Key</label>
+      <input
+        type="password"
+        id="api-key"
+        placeholder="Your API key"
+        required
+      />
+      <p class="help">Sent as the X-API-Key header. It must match the API_KEY on your server.</p>
+    </div>
+
+    <div class="field">
+      <label for="custom-prompt">Custom description prompt</label>
+      <textarea id="custom-prompt" rows="7"></textarea>
+      <p class="help">Used by the "Custom" button in the popup. The article title and text are sent after it. Clear the box and save to restore the default.</p>
+    </div>
+
+    <button type="submit">Save Settings</button>
+    <div id="status"></div>
+  </form>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

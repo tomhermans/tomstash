@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+#app {
+  padding: 16px;
+}
+
+header {
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #444;
+}
+
+.hint {
+  font-weight: 400;
+  color: #888;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fafafa;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: #666;
+  background: #fff;
+}
+
+.field input[readonly] {
+  color: #666;
+  background: #f0f0f0;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.actions {
+  margin-top: 14px;
+}
+
+.actions button {
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background: #333;
+}
+
+.actions button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.mini-btn {
+  margin-top: 4px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f5f5f5;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-row {
+  display: flex;
+  gap: 6px;
+}
+
+.mini-btn:hover:not(:disabled) {
+  background: #eee;
+}
+
+.mini-btn:disabled {
+  color: #999;
+  cursor: not-allowed;
+}
+
+#status {
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+#status.success {
+  background: #e6f4ea;
+  color: #1e7e34;
+  border: 1px solid #b7e4c7;
+}
+
+#status.error {
+  background: #fce8e8;
+  color: #c00;
+  border: 1px solid #f5c6c6;
+}
+
+#not-configured {
+  text-align: center;
+  padding: 20px 0;
+}
+
+#not-configured p {
+  margin-bottom: 12px;
+  color: #666;
+}
+
+#not-configured button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+#not-configured button:hover {
+  background: #eee;
+}
