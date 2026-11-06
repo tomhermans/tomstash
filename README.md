@@ -43,7 +43,7 @@ Settings are stored in `chrome.storage.sync` and never end up in the repository.
 
 ## Use
 
-1. Open an article and click the icon (or press `Cmd/Ctrl+Shift+S`).
+1. Open an article and click the icon (or press the shortcut, `Cmd/Ctrl+Shift+S` by default; see [Troubleshooting](#troubleshooting) if another extension has it).
 2. The status line shows `Fetched N words, lang: xx` when extraction is done.
 3. Edit the title. Optionally click **TL;DR**, **Teaser** or **Custom** to draft a description, and **Suggest tags** to add tags.
 4. Untick **Save page content** if you only want the link.
@@ -145,6 +145,7 @@ Nothing is sent to your server until you click Save. The AI features run in the 
 - **401 Unauthorized**: the key in Options differs from the server's `API_KEY`.
 - **Saved but no content**: your server ignores `content_md`. Check that the route reads the field and that the column exists.
 - **AI buttons missing**: open the popup's DevTools console and run `await Summarizer.availability()` and `await LanguageModel.availability()`. `unavailable` means this Chrome or machine doesn't support the model.
+- **The shortcut opens a different extension**: two extensions can't share a shortcut, and the manifest value is only a suggestion. Open `chrome://extensions/shortcuts` and set your own for this extension (and clear the other one if you like).
 - **After editing files**: click the reload icon on the extension's card in `chrome://extensions`.
 
 ## Credits
