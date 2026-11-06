@@ -1,4 +1,4 @@
-# Shelf
+# Tomstash
 
 A Chrome extension that saves the page you're reading to **your own database**, together with a clean Markdown copy of the article, a short description written by Chrome's on-device AI, and tags picked from your own vocabulary.
 
@@ -33,7 +33,7 @@ Think Pocket or Instapaper, except you own the data, there is no subscription, a
 1. Clone or download this repository.
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and select the folder that contains `manifest.json`.
-4. Pin **Shelf** to the toolbar.
+4. Pin **Tomstash** to the toolbar.
 5. Open the extension's **Options**:
    - **API Endpoint URL**: your server's base URL, without a trailing slash.
    - **API Key**: the shared secret your server expects.
