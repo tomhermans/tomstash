@@ -1,0 +1,36 @@
+{
+  "name": "Links",
+  "fields": [
+    { "name": "title", "type": "singleLineText" },
+    { "name": "url", "type": "singleLineText" },
+    { "name": "description", "type": "multilineText" },
+    { "name": "tags", "type": "singleLineText" },
+    { "name": "category", "type": "singleLineText" },
+    { "name": "author", "type": "singleLineText" },
+    { "name": "lang", "type": "singleLineText" },
+    { "name": "reading_time", "type": "number", "options": { "precision": 0 } },
+    { "name": "favicon_url", "type": "singleLineText" },
+    { "name": "image_url", "type": "singleLineText" },
+    {
+      "name": "created_at",
+      "type": "dateTime",
+      "options": {
+        "timeZone": "utc",
+        "dateFormat": { "name": "iso" },
+        "timeFormat": { "name": "24hour" }
+      }
+    },
+    {
+      "name": "content_fetched_at",
+      "type": "dateTime",
+      "options": {
+        "timeZone": "utc",
+        "dateFormat": { "name": "iso" },
+        "timeFormat": { "name": "24hour" }
+      }
+    },
+    { "name": "content_md", "type": "multilineText" },
+    { "name": "is_read", "type": "checkbox", "options": { "color": "greenBright", "icon": "check" } },
+    { "name": "is_archived", "type": "checkbox", "options": { "color": "grayBright", "icon": "check" } }
+  ]
+}

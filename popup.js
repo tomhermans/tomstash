@@ -2,6 +2,7 @@
 import TurndownService from "./vendor/turndown.browser.es.js";
 import { TAG_VOCAB, TAG_ALIASES } from "./tags.js";
 import { DEFAULT_CUSTOM_PROMPT } from "./defaults.js";
+import { BACKENDS, isConfigured, loadSettings } from "./backends.js";
 
 const turndown = new TurndownService({
   headingStyle: "atx",
@@ -129,9 +130,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   const titleInput = document.getElementById("title");
 
   // Check if settings are configured
-  const settings = await chrome.storage.sync.get(["apiKey", "apiEndpoint", "customPrompt"]);
+  const settings = await loadSettings();
 
-  if (!settings.apiKey || !settings.apiEndpoint) {
+  if (!isConfigured(settings.backend, settings.config)) {
     form.hidden = true;
     notConfigured.hidden = false;
 
@@ -297,29 +298,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     try {
-      const endpoint = settings.apiEndpoint.replace(/\/+$/, "");
-      const res = await fetch(`${endpoint}/api/links/index.json`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-API-Key": settings.apiKey,
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await res.json();
-
-      if (res.ok && result.data) {
-        showStatus("Saved!", "success");
-        saveBtn.textContent = "Saved!";
-        setTimeout(() => window.close(), 1200);
-      } else {
-        showStatus(result.error || "Failed to save", "error");
-        saveBtn.disabled = false;
-        saveBtn.textContent = "Save";
-      }
+      await BACKENDS[settings.backend].save(settings.config, payload);
+      showStatus("Saved!", "success");
+      saveBtn.textContent = "Saved!";
+      setTimeout(() => window.close(), 1200);
     } catch (err) {
-      showStatus("Network error. Check your settings.", "error");
+      showStatus(err.message || "Failed to save", "error");
       saveBtn.disabled = false;
       saveBtn.textContent = "Save";
     }

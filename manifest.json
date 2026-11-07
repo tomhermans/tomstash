@@ -4,6 +4,7 @@
   "version": "1.0",
   "description": "Save pages, their readable text, an on-device AI summary and tags to your own database.",
   "permissions": ["activeTab", "scripting", "storage"],
+  "optional_host_permissions": ["https://*/*"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
